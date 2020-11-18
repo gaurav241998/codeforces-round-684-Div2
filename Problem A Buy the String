@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+void solve()
+{
+ int n,N,Y,h;
+ scanf("%d%d%d%d",&n,&N,&Y,&h);
+ char A[n+1];
+ for(int i=1;i<=n+1;i++)
+ {
+   scanf("%c",&A[i]);
+ }
+ int a=0,b=0;
+ for(int i=1;i<=n+1;i++)
+ {
+   if(A[i] == 49)
+   {
+     a++;
+   }
+   else if(A[i] == 48) 
+   {
+     b++;
+   }
+ }
+ int sum = Y*a + N*b;
+ if(N == Y)
+ {
+   printf("%d",sum);
+ }
+ else 
+ {
+   if(N>Y)
+   {
+     if(Y+h<N)
+     {
+       sum = sum - N*b;
+       sum = sum + b*Y+b*h;
+       printf("%d",sum);
+     }
+     else 
+     {
+       printf("%d",sum);
+     }
+   }
+   else 
+   {
+      if(N+h<Y)
+     {
+       sum = sum - Y*a;
+       sum = sum + a*(N+h);
+       printf("%d",sum);
+     }
+     else 
+     {
+       printf("%d",sum);
+     }
+   }
+ }
+}
+int main()
+{
+  int T;
+  scanf("%d",&T);
+  while(T--)
+  {
+    solve();
+    printf("\n");
+  }
+  return 0;
+}
